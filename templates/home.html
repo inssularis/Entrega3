@@ -7,6 +7,28 @@
     {% if session %}
     <h1>Bienvenido{{session.userinfo.name}}!</h1>
     <p><a href="/logout" id="qsLogoutBtn">Logout</a></p>
+    <div id="profileSection">
+      <h2>Editar Perfil</h2>
+      <form id="editProfileForm" action="/edit-profile" method="post">
+      <label for="tipoDocumento">Tipo de Documento:</label>
+      <input type="text" id="tipoDocumento" name="tipoDocumento" 
+                     value="{{ session.userinfo.exp }}" required />
+       
+              <label for="numeroDocumento">Número de Documento:</label>
+      <input type="text" id="numeroDocumento" name="numeroDocumento" 
+                     value="{{ session.userinfo.exp  }}" required />
+       
+              <label for="direccion">Dirección:</label>
+      <input type="text" id="direccion" name="direccion" 
+                     value="{{ session.userinfo.exp  }}" required />
+       
+              <label for="telefono">Teléfono:</label>
+      <input type="text" id="telefono" name="telefono" 
+                     value="{{ session.userinfo.exp  }}" required />
+       
+              <button type="submit" id="saveChangesBtn">Guardar Cambios</button>
+      </form>
+    </div>
     <div><pre>{{pretty}}</pre></div>
     {% else %}
     <h1 id="profileDropDown">Bienvenido Guest</h1>
